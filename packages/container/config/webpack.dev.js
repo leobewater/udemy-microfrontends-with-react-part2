@@ -1,5 +1,4 @@
 const { merge } = require("webpack-merge");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const commonConfig = require("./webpack.common");
 // use package.json dependencies to import packages from other modules' packages
@@ -20,10 +19,6 @@ const devConfig = {
         marketing: "marketing@http://localhost:8081/remoteEntry.js",
       },
       shared: packageJson.dependencies,
-    }),
-    // insert bundled js to public/index.html
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
     }),
   ],
 };
