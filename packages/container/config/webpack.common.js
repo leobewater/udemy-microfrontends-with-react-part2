@@ -1,4 +1,4 @@
-// use HtmlWebpackPlugin to auto insert js to defined template.
+// use HtmlWebpackPlugin to auto insert js to defined template
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
