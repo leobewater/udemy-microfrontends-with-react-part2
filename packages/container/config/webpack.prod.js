@@ -18,8 +18,8 @@ const prodConfig = {
     new ModuleFederationPlugin({
       name: "container",
       remotes: {
-        // assume the remoteEntry is inside the "marketing" folder
-        marketing: `marketing@${domain}/marketing/remoteEntry.js`,
+        // use the AWS S3 folder structure "marketing/latest"
+        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),
