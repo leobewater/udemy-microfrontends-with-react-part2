@@ -59,6 +59,7 @@ Create a new bucket "udemy-microfrontends-with-react-dashboard"
 - Wait and then create access key for CLI
 - Copy the "Access key ID", "Secret access key" to github -> Settings -> "Actions secrets and variables"
 - Add new "Secret Key": AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_S3_BUCKET_NAME
+- Also add Cloudfront domain name to Git secrets "PRODUCTION_DOMAIN" such as "https://d287sijgv3wsh.cloudfront.net"
 
 
 # Action -> Cloudfront (Manual way)
