@@ -18,7 +18,11 @@ export default () => {
         // console.log(nextPathname);
 
         // Update Container's browser history when this is being called from the submodules memory history
-        history.push(nextPathname);
+        // Check current pathname and nextPathname to avoid infinite loop
+        const { pathname } = history.location;
+        if (pathname !== nextPathname) {
+          history.push(nextPathname);
+        }
       },
     });
   }, []);
