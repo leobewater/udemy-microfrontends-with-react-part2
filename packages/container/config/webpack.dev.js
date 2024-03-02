@@ -2,15 +2,17 @@ const { merge } = require("webpack-merge");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const commonConfig = require("./webpack.common");
 // use package.json dependencies to import packages from other modules' packages
-const packageJson = require('../package.json')
+const packageJson = require("../package.json");
 
 const devConfig = {
   mode: "development",
+  output: {
+    // this avoid throwing 404 when using nested routes
+    publicPath: "http://localhost:8080/",
+  },
   devServer: {
     port: 8080,
-    historyApiFallback: {
-      index: "/index.html",
-    },
+    historyApiFallback: true,
   },
   plugins: [
     new ModuleFederationPlugin({
