@@ -45,7 +45,7 @@ Create a new bucket "udemy-microfrontends-with-react-dashboard"
 - Set Origin Domain to udemy-microfrontends-with-react-dashboard.s3-website-us-east-1.amazonaws.com
 - Redirect HTTP to HTTPS
 - Wait until distribution is deployed
-- Go back to Settings and update the "Default root object" to "/container/latest/index.html"
+- Go back to Settings and update the "Default root object" to "container/latest/index.html"
 - Go to Error Pages (redirect 403 to homepage)
   - HTTP error code: 403:hidden
   - Customize error response: Yes

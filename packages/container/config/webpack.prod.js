@@ -11,6 +11,8 @@ const prodConfig = {
   output: {
     // set up the output files with cache hash
     filename: "[name].[contenthash].js",
+    // match AWS S3/container/latest/ folder structure setting
+    publicPath: "/container/latest/",
   },
   plugins: [
     new ModuleFederationPlugin({
