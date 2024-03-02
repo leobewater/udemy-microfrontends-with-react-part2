@@ -11,6 +11,7 @@ This projects contains 4 modules
 - npm run start
 ```
 
+
 # Git Action for CI/CD
 - set up deployment yml files
 
@@ -38,6 +39,7 @@ Create a new bucket "udemy-microfrontends-with-react-dashboard"
 }
 ```
 
+
 # AWS Cloudfront
 - Create a new distribution and pulling the files from our S3 bucket
 - Set Origin Domain to udemy-microfrontends-with-react-dashboard.s3-website-us-east-1.amazonaws.com
@@ -49,6 +51,7 @@ Create a new bucket "udemy-microfrontends-with-react-dashboard"
   - Customize error response: Yes
   - Response page path: /container/latest/index.html
   - HTTP Response code: 200: OK
+
 
 # AWS IAM
 - Add a new user "udemy-github-action"
