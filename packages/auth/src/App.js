@@ -5,8 +5,8 @@ import {
   createGenerateClassName,
 } from "@material-ui/core/styles";
 
-// import Landing from "./components/Landing";
-// import Pricing from "./components/Pricing";
+import Signin from "./components/Signin";
+import Signup from "./components/Signup";
 
 // add prefix for production css to avoid auto generated conflicts
 const generateClassName = createGenerateClassName({
@@ -20,6 +20,8 @@ export default ({ history }) => {
         {/* use Memory History instead of BrowserRouter, passing it from bootstrap */}
         <Router history={history}>
           <Switch>
+            <Route path="/auth/signin" component={Signin} />
+            <Route path="/auth/signup" component={Signup} />
           </Switch>
         </Router>
       </StylesProvider>
