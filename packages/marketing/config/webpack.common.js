@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   module: {
     rules: [
@@ -15,4 +17,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    // insert bundled js to public/index.html
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+  ],
 };
