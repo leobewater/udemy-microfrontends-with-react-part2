@@ -18,6 +18,7 @@ const devConfig = {
       exposes: {
         "./MarketingApp": "./src/bootstrap",
       },
+      shared: ["react", "react-dom"],
     }),
     // insert bundled js to public/index.html
     new HtmlWebpackPlugin({
