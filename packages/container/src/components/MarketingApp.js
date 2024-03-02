@@ -12,6 +12,7 @@ export default () => {
     // passing object onNavigate to handle Routing to marketing component
     // Marking App returns an object including "onParentNavigate" so Container can use it
     const { onParentNavigate } = mount(ref.current, {
+      initialPath: history.location.pathname,
       // extract submodule's location's pathname and rename it
       onNavigate: ({ pathname: nextPathname }) => {
         // console.log("The container noticed navigation in Marketing");

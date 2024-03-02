@@ -4,10 +4,14 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 import App from "./App";
 
 // Mount function to start up the app
-const mount = (el, { onNavigate, defaultHistory }) => {
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   // set up Memory history instead of using browser history in container
   // use defaultHistory when module in insolation
-  const history = defaultHistory || createMemoryHistory();
+  const history =
+    defaultHistory ||
+    createMemoryHistory({
+      initialEntries: [initialPath],
+    });
 
   // 1. call the Container onNavigate function when path changes to sync the routing history
   // (see readme file)
