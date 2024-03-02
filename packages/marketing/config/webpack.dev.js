@@ -23,7 +23,6 @@ const devConfig = {
       // see part1 code
       shared: packageJson.dependencies,
     }),
-
   ],
 };
 
