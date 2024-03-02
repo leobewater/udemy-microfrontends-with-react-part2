@@ -9,8 +9,9 @@ export default () => {
 
   useEffect(() => {
     // passing the reference to mount function
-    // passing object onNavigate to handle Routing to maketing component
-    mount(ref.current, {
+    // passing object onNavigate to handle Routing to marketing component
+    // Marking App returns an object including "onParentNavigate" so Container can use it
+    const { onParentNavigate } = mount(ref.current, {
       // extract submodule's location's pathname and rename it
       onNavigate: ({ pathname: nextPathname }) => {
         // console.log("The container noticed navigation in Marketing");
@@ -25,6 +26,8 @@ export default () => {
         }
       },
     });
+
+    history.listen(onParentNavigate);
   }, []);
 
   return <div ref={ref} />;

@@ -72,5 +72,5 @@ Create a new bucket "udemy-microfrontends-with-react-dashboard"
 
 # Routing/Navigation
 - Modules use memory history and need to sync back to Container
-- Handling communication from Container down to submodules
-- Handling communication from submodules back to Container
+- 1. Handling communication from Container down to submodules
+- 2. Handling communication from submodules back to Container
