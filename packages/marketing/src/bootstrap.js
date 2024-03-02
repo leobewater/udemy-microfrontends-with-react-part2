@@ -4,9 +4,12 @@ import { createMemoryHistory } from "history";
 import App from "./App";
 
 // Mount function to start up the app
-const mount = (el) => {
+const mount = (el, { onNavigate }) => {
   // set up Memory history instead of using browser history
   const history = createMemoryHistory();
+
+  // call the Container onNavigate function when path changes to sync the routing history
+  history.listen(onNavigate);
 
   ReactDOM.render(<App history={history} />, el);
 };
