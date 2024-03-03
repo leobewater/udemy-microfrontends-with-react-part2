@@ -24,7 +24,7 @@ export default () => {
     <BrowserRouter>
       <StylesProvider generateClassName={generateClassName}>
         <div>
-          <Header />
+          <Header isSignedIn={isSignedIn} />
           <Suspense fallback={<Progress />}>
             <Switch>
               {/* path value matches the first part of the path */}
