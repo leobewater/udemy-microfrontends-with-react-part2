@@ -1,0 +1,43 @@
+name: deploy-dashboard
+
+# set event listener and watch the "push" event on the master branch
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "packages/dashboard/**"
+
+defaults:
+  run:
+    working-directory: packages/dashboard
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # checkout the code first
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run build
+      #- run: npm run test
+
+      # deploy to aws using aws cli
+      - uses: shinyinc/action-aws-cli@v1.2
+      # sync our dist folder to aws s3 bucket
+      # secrets keys are secrets from github actions
+      - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/dashboard/latest
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: "us-east-1"
+
+      # automatically run cloudfront invalidation for the remoteEntry.js only, since all other js files already built with a new hash so no need to invalidate them.
+      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/dashboard/latest/remoteEntry.js"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: "us-east-1"
+
+
