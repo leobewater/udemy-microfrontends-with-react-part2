@@ -63,14 +63,14 @@ Create a new bucket "udemy-microfrontends-with-react-dashboard"
 
 
 # Action -> Cloudfront (Manual way)
-- Cloudfront caches the changes
+- Cloudfront caches all the files and changes
 - After running any git actions, you need to manually run Invalidations in Cloudfront for the index.html since the filename never get changes. All the other js files already built with new hash so no need to invalidate them.
 - just invalidate the index file: /container/latest/index.html
-# (Automatically way)
+# (Automatic way)
 - Add the create-invalidation in the deployment yml file
 
 
 # Routing/Navigation
-- Modules use memory history and need to sync back to Container
+- Submodules use memory history and need to sync back to Container
 - 1. Handling communication from Container down to submodules
 - 2. Handling communication from submodules back to Container
