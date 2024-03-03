@@ -4,7 +4,7 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 import App from "./App";
 
 // Mount function to start up the app
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
   // set up Memory history instead of using browser history in container
   // use defaultHistory when module in insolation
   // passing initial path to createMemoryHistory to avoid double click
@@ -20,7 +20,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
     history.listen(onNavigate);
   }
 
-  ReactDOM.render(<App history={history} />, el);
+  ReactDOM.render(<App onSignIn={onSignIn} history={history} />, el);
 
   // 2. when Container navigates a new path, tells submodules to update the history and navigate to the nextPathname
   // (see readme file)
