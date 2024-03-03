@@ -55,7 +55,7 @@ Create a new bucket "udemy-microfrontends-with-react-dashboard"
 
 # AWS IAM
 - Add a new user "udemy-github-action"
-- Permissions - attach policies directly to all my S3 and cloudfront *** danger
+- Permissions - attach policies directly with "AmazonS3FullAccess" and "CloudFrontFullAccess" *** danger
 - Wait and then create access key for CLI
 - Copy the "Access key ID", "Secret access key" to github -> Settings -> "Actions secrets and variables"
 - Add new "Secret Key": AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_S3_BUCKET_NAME
