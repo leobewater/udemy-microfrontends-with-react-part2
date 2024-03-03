@@ -8,18 +8,22 @@ const devConfig = {
   mode: "development",
   output: {
     // this avoid throwing 404 when using nested routes
-    publicPath: "http://localhost:8081/",
+    publicPath: "http://localhost:8083/",
   },
   devServer: {
-    port: 8081,
+    port: 8083,
     historyApiFallback: true,
+    // For Cors
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "marketing",
+      name: "dashboard",
       filename: "remoteEntry.js",
       exposes: {
-        "./MarketingApp": "./src/bootstrap",
+        "./DashboardApp": "./src/bootstrap",
       },
       // may not want to use packageJson if you want to have total control then use [] or {}
       // see part1 code

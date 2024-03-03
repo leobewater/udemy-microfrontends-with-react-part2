@@ -8,15 +8,15 @@ const prodConfig = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
-    // match AWS S3/marketing/latest/ folder structure setting
-    publicPath: "/marketing/latest/",
+    // match AWS S3/dashboard/latest/ folder structure setting
+    publicPath: "/dashboard/latest/",
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "marketing",
+      name: "dashboard",
       filename: "remoteEntry.js",
       exposes: {
-        "./MarketingApp": "./src/bootstrap",
+        "./DashboardApp": "./src/bootstrap",
       },
       // may not want to use packageJson if you want to have total control then use [] or {}
       // see part1 code
