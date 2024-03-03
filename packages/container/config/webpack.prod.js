@@ -20,6 +20,7 @@ const prodConfig = {
       remotes: {
         // use the AWS S3 folder structure "marketing/latest"
         marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
+        auth: `auth@${domain}/auth/latest/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),
